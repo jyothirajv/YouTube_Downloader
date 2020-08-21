@@ -36,6 +36,7 @@ def btnClicked():
         btn['state'] = 'disabled'
         link = ip.get()
         if link == '':
+            showinfo("Error","Unknown YouTube URL")
             root.title('Simple Youtube downloader  (Please Enter a valid URL)')
             btn['text'] = "Download"
             btn['state'] = 'active'
@@ -56,7 +57,6 @@ root.title("Simple Youtube downloader")
 
 # #Icon
 root.iconbitmap(r"C:\Users\R4V3N\PycharmProjects\YouTube Downloader\venv\img\icon.ico")
-
 # #Thubnail
 #file = PhotoImage(file=r"C:\Users\R4V3N\PycharmProjects\YouTube Downloader\venv\img\icon.png")
 #label = Label(image=file)
@@ -68,6 +68,7 @@ ip = Entry(root, font=font, justify=LEFT)
 ip.pack(side=TOP, fill=X, padx=10)
 ip.focus()
 btn = Button(root, text="Download", font=font, relief='ridge', command=btnClicked)
+link = ip.get()
 btn.pack(side=TOP, pady=10)
 root.mainloop()
 
