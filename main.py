@@ -36,7 +36,9 @@ def btnClicked():
         btn['state'] = 'disabled'
         link = ip.get()
         if link == '':
-            root.title('Enter a valid URL Please')
+            root.title('Simple Youtube downloader  (Please Enter a valid URL)')
+            btn['text'] = "Download"
+            btn['state'] = 'active'
             return
         print(link)
         thread = Thread(target=down, args=(link,))
