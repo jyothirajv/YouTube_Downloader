@@ -6,7 +6,7 @@ from pytube import YouTube
 from tkinter import filedialog
 from tkinter import *
 
-#                                                https://www.youtube.com/watch?v=RQ0FzwaqLow
+#                               https://www.youtube.com/watch?v=RQ0FzwaqLow
 # download
 size = 0
 
@@ -19,6 +19,7 @@ def down(link):
 
     try:
         yt = YouTube(link)
+        thumbnail = yt.thumbnail_url
         st = yt.streams.first()
         size = st.filesize
         st.download(output_path=folder)
