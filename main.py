@@ -22,14 +22,14 @@ def down(link):
         st = yt.streams.first()
         size = st.filesize
         st.download(output_path=folder)
-        showinfo("Download Compleate",yt.title+"\n\nHas finished downloading")
+        showinfo("Download Complete", yt.title+"\n\nHas finished downloading")
     except EXCEPTION as e:
         print(e)
         print("something went wrong")
 
 
 # #button
-def btnClicked():
+def btnclicked():
     try:
         btn['text'] = "Waiting..."
         btn['state'] = 'disabled'
@@ -65,7 +65,7 @@ root.iconbitmap(r"C:\Users\R4V3N\PycharmProjects\YouTube Downloader\venv\img\ico
 ip = Entry(root, font=font, justify=LEFT)
 ip.pack(side=TOP, fill=X, padx=10)
 ip.focus()
-btn = Button(root, text="Download", font=font, relief='ridge', command=btnClicked)
+btn = Button(root, text="Download", font=font, relief='ridge', command=btnclicked())
 btn.pack(side=TOP, pady=10)
 root.mainloop()
 
