@@ -6,12 +6,13 @@ from pytube import YouTube
 from tkinter import filedialog
 from tkinter import *
 
-#                               https://www.youtube.com/watch?v=RQ0FzwaqLow
+#                       https://www.youtube.com/watch?v=RQ0FzwaqLow
 # download
 size = 0
 
 
 def down(link):
+    root.title('Simple Youtube downloader')
     global size
     folder = askdirectory()
     if folder is None:
@@ -22,14 +23,14 @@ def down(link):
         st = yt.streams.first()
         size = st.filesize
         st.download(output_path=folder)
-        showinfo("Download Complete", yt.title+"\n\nHas finished downloading")
+        showinfo("Download Complete", "{0}\n\nDownload Finished".format(yt.title))
     except EXCEPTION as e:
         print(e)
         print("something went wrong")
 
 
 # #button
-def btnclicked():
+def btnClicked():
     try:
         btn['text'] = "Waiting..."
         btn['state'] = 'disabled'
@@ -37,8 +38,8 @@ def btnclicked():
         if link == '':
             showinfo("Error", "Unknown YouTube URL")
             root.title('Simple Youtube downloader  (Please Enter a valid URL)')
-#            btn['text'] = "Download"
-#            btn['state'] = 'active'
+            btn['text'] = "Download"
+            btn['state'] = 'active'
             return
         print(link)
         thread = Thread(target=down, args=(link,))
@@ -65,7 +66,7 @@ root.iconbitmap(r"C:\Users\R4V3N\PycharmProjects\YouTube Downloader\venv\img\ico
 ip = Entry(root, font=font, justify=LEFT)
 ip.pack(side=TOP, fill=X, padx=10)
 ip.focus()
-btn = Button(root, text="Download", font=font, relief='ridge', command=btnclicked())
+btn = Button(root, text="Download", font=font, relief='ridge', command=btnClicked)
 btn.pack(side=TOP, pady=10)
 root.mainloop()
 
