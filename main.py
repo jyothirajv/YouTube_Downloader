@@ -19,7 +19,6 @@ def down(link):
 
     try:
         yt = YouTube(link)
-        thumbnail = yt.thumbnail_url
         st = yt.streams.first()
         size = st.filesize
         st.download(output_path=folder)
@@ -36,10 +35,10 @@ def btnClicked():
         btn['state'] = 'disabled'
         link = ip.get()
         if link == '':
-            showinfo("Error","Unknown YouTube URL")
+            showinfo("Error", "Unknown YouTube URL")
             root.title('Simple Youtube downloader  (Please Enter a valid URL)')
-            btn['text'] = "Download"
-            btn['state'] = 'active'
+#            btn['text'] = "Download"
+#            btn['state'] = 'active'
             return
         print(link)
         thread = Thread(target=down, args=(link,))
@@ -54,7 +53,6 @@ font = ('Georgia', 20)
 root = Tk()
 root.geometry("500x400")
 root.title("Simple Youtube downloader")
-
 # #Icon
 root.iconbitmap(r"C:\Users\R4V3N\PycharmProjects\YouTube Downloader\venv\img\icon.ico")
 # #Thubnail
@@ -68,7 +66,6 @@ ip = Entry(root, font=font, justify=LEFT)
 ip.pack(side=TOP, fill=X, padx=10)
 ip.focus()
 btn = Button(root, text="Download", font=font, relief='ridge', command=btnClicked)
-link = ip.get()
 btn.pack(side=TOP, pady=10)
 root.mainloop()
 
