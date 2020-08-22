@@ -22,7 +22,7 @@ def down(link):
         st = yt.streams.first()
         size = st.filesize
         st.download(output_path=folder)
-        showinfo("Message", yt.title, "Download Finished")
+        showinfo("Download Compleate",yt.title+"\n\nHas finished downloading")
     except EXCEPTION as e:
         print(e)
         print("something went wrong")
